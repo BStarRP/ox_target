@@ -9,12 +9,12 @@ window.addEventListener("message", (event) => {
 
   switch (event.data.event) {
     case "visible": {
-      body.style.visibility = event.data.state ? "visible" : "hidden";
-      return eye.classList.remove("eye-hover");
+      0==event.data.state?(body.style.scale="0.00",body.style.opacity="0"):(body.style.scale="1.0",body.style.opacity="1");
+      eye.style.fill = "url(#paint1_linear_265_268)"
     }
 
     case "leftTarget": {
-      return eye.classList.remove("eye-hover");
+      eye.style.fill = "url(#paint1_linear_265_268)"
     }
 
     case "setTarget": {

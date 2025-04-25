@@ -118,11 +118,12 @@ local function convert(options)
         end
 
         v.action = nil
-        v.job = nil
-        v.gang = nil
-        v.citizenid = nil
-        v.item = nil
+        --v.job = nil
+        --v.gang = nil
+        --v.citizenid = nil
+        --v.item = nil
         v.qtarget = true
+        v.qbtarget = true
 
         ::continue::
     end
@@ -133,7 +134,7 @@ end
 local api = require 'client.api'
 
 exportHandler('AddBoxZone', function(name, center, length, width, options, targetoptions)
-    local z = center.z
+    --[[local z = center.z
 
     if not options.minZ then
         options.minZ = -100
@@ -146,7 +147,7 @@ exportHandler('AddBoxZone', function(name, center, length, width, options, targe
     if not options.useZ then
         z = z + math.abs(options.maxZ - options.minZ) / 2
         center = vec3(center.x, center.y, z)
-    end
+    end]]--
 
     return api.addBoxZone({
         name = name,
@@ -204,7 +205,6 @@ end)
 exportHandler('AddTargetEntity', function(entities, options)
     if type(entities) ~= 'table' then entities = { entities } end
     options = convert(options)
-
     for i = 1, #entities do
         local entity = entities[i]
 
